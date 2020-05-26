@@ -29,4 +29,11 @@ config NORDIC_QSPI_NOR_FLASH_LAYOUT_PAGE_SIZE
 	  that API.  By default the page size corresponds to the block
 	  size (65536).  Other option include the sector size (4096).
 
+config NORDIC_QSPI_NOR_FLASH_ALLOW_STACK_USAGE_FOR_DATA_IN_FLASH
+	bool "Use stack for writing data stored in flash"
+	help
+	  When this option is enabled writing data from FLASH is possible.
+	  However the driver will use stack to copy the data from flash onto
+	  the stack then start the DMA transfer.
+
 endif # NORDIC_QSPI_NOR
